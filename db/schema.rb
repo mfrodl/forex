@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170330161041) do
 
-  create_table "candles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "candles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.datetime "start"
     t.float    "open",          limit: 24
     t.float    "high",          limit: 24
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170330161041) do
     t.index ["instrument_id"], name: "index_candles_on_instrument_id", using: :btree
   end
 
-  create_table "instruments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "instruments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

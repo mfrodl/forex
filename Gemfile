@@ -18,7 +18,7 @@ gem 'heroku', '~> 3.41.5'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'mysql2', '~> 0.3.21'
+  gem 'mysql2', '~> 0.4.0'
 end
 
 group :development do
