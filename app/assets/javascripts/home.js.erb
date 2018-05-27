@@ -1,0 +1,38 @@
+var ready = function() {
+  var chart = new CanvasJS.Chart("chartContainer",
+  {
+    /*title: {
+      text: "EURUSD daily chart"
+    },*/
+    zoomEnabled: false,
+    axisY: {
+      includeZero: false,
+      title: "EURUSD",
+      labelFontSize: 14
+    },
+    axisX: {
+      interval: 24,
+      intervalType: "month",
+      valueFormatString: "YYYY-MM-DD",
+      labelFontSize: 14
+    },
+    data: [
+      {
+        type: "candlestick",
+        color: "black",
+        dataPoints: [
+        <% Candle.order(:start).last(200).map do |c| %>
+          {
+            label:
+              CanvasJS.formatDate(new Date("<%= c.start %>"), "YYYY-MM-DD"),
+            y: <%= [c.open, c.high, c.low, c.close] %>
+          },
+        <% end %>
+        ]
+      }
+    ]
+  });
+  chart.render();
+};
+
+//$(document).ready(ready);

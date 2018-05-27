@@ -1,0 +1,18 @@
+default: &default
+  adapter: mysql2
+  host: localhost
+  username: forex
+  password: forexpassword
+  encoding: utf8
+
+development:
+  <<: *default
+  database: forex_development
+
+test:
+  <<: *default
+  database: forex_test
+
+production:
+  <<: *default
+  database: forex
